@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package msg;
+
+
+enum MsgStatus{
+	Normal = 0; 
+	Timeout = 1;
+	WaitFor = 2;
+}
+
+
+message MsgInfo {
+	string msg_id = 1;
+	string topic = 2;
+	string queue = 3;
+	string reply_topic = 4;
+	string req_msg_id = 5;
+	bytes data = 6;
+	int64 timeout = 7;
+	MsgStatus status = 8;	
+}
